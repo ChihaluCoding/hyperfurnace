@@ -1,0 +1,4 @@
+{
+  "gui.hyperfurnace.speed.button": "Snelheid: %sx",
+  "gui.hyperfurnace.speed.tooltip": "Verander de smeltsnelheid: 1x (standaard), 5x, 10x, 15x, 20x, 25x, 30x."
+}

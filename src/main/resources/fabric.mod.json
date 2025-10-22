@@ -3,7 +3,7 @@
 	"id": "hyperfurnace",
 	"version": "${version}",
 	"name": "HyperFurnace",
-	"description": "HyperFurnace - Makes furnaces cook items 2x faster using Fabric Mixin injections. Enhance your Minecraft furnace efficiency!",
+	"description": "Adds an in-furnace speed selector so the vanilla furnace can smelt up to six times faster.",
 	"authors": [
 		"HyperFurnace Developer"
 	],

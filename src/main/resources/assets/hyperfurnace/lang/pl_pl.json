@@ -1,0 +1,4 @@
+{
+  "gui.hyperfurnace.speed.button": "Prędkość: %sx",
+  "gui.hyperfurnace.speed.tooltip": "Zmień prędkość topienia: 1x (domyślnie), 5x, 10x, 15x, 20x, 25x, 30x."
+}

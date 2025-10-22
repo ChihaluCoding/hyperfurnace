@@ -1,0 +1,4 @@
+{
+  "gui.hyperfurnace.speed.button": "速度: %sx",
+  "gui.hyperfurnace.speed.tooltip": "精錬速度を切り替え: 1x (デフォルト), 5x, 10x, 15x, 20x, 25x, 30x。"
+}

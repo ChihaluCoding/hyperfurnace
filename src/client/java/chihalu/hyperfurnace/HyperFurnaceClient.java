@@ -1,10 +1,11 @@
 package chihalu.hyperfurnace;
 
+import chihalu.hyperfurnace.network.HyperFurnaceNetworking;
 import net.fabricmc.api.ClientModInitializer;
 
 public class HyperFurnaceClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
-		// This entrypoint is suitable for setting up client-specific logic, such as rendering.
+		HyperFurnaceNetworking.registerCommon();
 	}
 }

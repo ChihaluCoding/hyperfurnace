@@ -2,7 +2,9 @@
 	"required": true,
 	"package": "chihalu.hyperfurnace.mixin.client",
 	"compatibilityLevel": "JAVA_21",
-	"client": [],
+	"client": [
+		"FurnaceScreenMixin"
+	],
 	"injectors": {
 		"defaultRequire": 1
 	}

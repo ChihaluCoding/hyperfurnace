@@ -1,0 +1,4 @@
+{
+  "gui.hyperfurnace.speed.button": "속도: %sx",
+  "gui.hyperfurnace.speed.tooltip": "제련 속도 변경: 1x (기본값), 5x, 10x, 15x, 20x, 25x, 30x."
+}
