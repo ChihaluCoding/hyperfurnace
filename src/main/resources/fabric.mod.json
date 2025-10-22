@@ -5,13 +5,12 @@
 	"name": "HyperFurnace",
 	"description": "Adds an in-furnace speed selector so the vanilla furnace can smelt up to six times faster.",
 	"authors": [
-		"HyperFurnace Developer"
+		"chihalu"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/ChihaluCoding/hyperfurnace"
 	},
-	"license": "CC0-1.0",
+	"license": "Chihalu-License",
 	"icon": "assets/hyperfurnace/icon.png",
 	"environment": "*",
 	"entrypoints": {
