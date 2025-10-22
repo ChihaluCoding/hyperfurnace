@@ -1,0 +1,44 @@
+{
+	"schemaVersion": 1,
+	"id": "hyperfurnace",
+	"version": "${version}",
+	"name": "HyperFurnace",
+	"description": "HyperFurnace - Makes furnaces cook items 2x faster using Fabric Mixin injections. Enhance your Minecraft furnace efficiency!",
+	"authors": [
+		"HyperFurnace Developer"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/hyperfurnace/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"chihalu.hyperfurnace.HyperFurnace"
+		],
+		"client": [
+			"chihalu.hyperfurnace.HyperFurnaceClient"
+		],
+		"fabric-datagen": [
+			"chihalu.hyperfurnace.HyperFurnaceDataGenerator"
+		]
+	},
+	"mixins": [
+		"hyperfurnace.mixins.json",
+		{
+			"config": "hyperfurnace.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.17.3",
+		"minecraft": "~1.21.10",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
