@@ -1,3 +1,5 @@
+### Japanese README　↓　https://github.com/ChihaluCoding/hyperfurnace/blob/main/README_ja.md
+
 # Overview
 
 Vanilla furnace gains a speed selector in its UI.
