@@ -1,4 +1,4 @@
 {
   "gui.hyperfurnace.speed.button": "Vitesse : %sx",
-  "gui.hyperfurnace.speed.tooltip": "Changer la vitesse de fusion : 1x (par défaut), 5x, 10x, 15x, 20x, 25x, 30x."
+  "gui.hyperfurnace.speed.tooltip": "Changer la vitesse de fusion : 1x (par défaut), 10x, 20x, 30x, 40x, 50x."
 }

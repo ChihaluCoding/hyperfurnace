@@ -3,7 +3,7 @@ package chihalu.hyperfurnace.furnace;
 import net.minecraft.util.math.MathHelper;
 
 public final class FurnaceSpeedLevels {
-    private static final int[] MULTIPLIERS = {1, 5, 10, 15, 20, 25, 30};
+    private static final int[] MULTIPLIERS = {1, 10, 20, 30, 40, 50};
 
     private FurnaceSpeedLevels() {
     }

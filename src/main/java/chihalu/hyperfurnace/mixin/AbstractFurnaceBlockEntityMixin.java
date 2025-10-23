@@ -153,6 +153,6 @@ public abstract class AbstractFurnaceBlockEntityMixin implements FurnaceSpeedAcc
     @Unique
     private static int hyperfurnace$computeCookTime(int base, int level) {
         int multiplier = FurnaceSpeedLevels.multiplier(level);
-        return Math.max(1, (int) Math.round((double) base / multiplier));
+        return Math.max(1, (int) Math.ceil((double) base / multiplier));
     }
 }

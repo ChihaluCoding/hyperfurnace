@@ -3,14 +3,14 @@
 # Overview
 
 Vanilla furnace gains a speed selector in its UI.
-Choose from 7 tiers: 1x (default), 5x, 10x, 15x, 20x, 25x, 30x.
+Choose from 6 tiers: 1x (default), 10x, 20x, 30x, 40x, 50x.
 Works with the existing furnace.
 
 ## Controls
 
 1. Open a furnace.
 2. Click “Speed: Nx” to cycle:
-   - `1x → 5x → 10x → 15x → 20x → 25x → 30x → loops back.`
+   - `1x → 10x → 20x → 30x → 40x → 50x → loops back.`
 
 ## Requirements
 

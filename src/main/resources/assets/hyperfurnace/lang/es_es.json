@@ -1,4 +1,4 @@
 {
   "gui.hyperfurnace.speed.button": "Velocidad: %sx",
-  "gui.hyperfurnace.speed.tooltip": "Cambiar la velocidad de fundición: 1x (predeterminado), 5x, 10x, 15x, 20x, 25x, 30x."
+  "gui.hyperfurnace.speed.tooltip": "Cambiar la velocidad de fundición: 1x (predeterminado), 10x, 20x, 30x, 40x, 50x."
 }
