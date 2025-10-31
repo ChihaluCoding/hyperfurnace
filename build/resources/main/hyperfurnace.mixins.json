@@ -1,0 +1,12 @@
+{
+	"required": true,
+	"package": "chihalu.hyperfurnace.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"AbstractFurnaceBlockEntityMixin",
+		"AbstractFurnaceScreenHandlerMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

@@ -1,0 +1,4 @@
+v1	named	intermediary
+FIELD	chihalu/hyperfurnace/mixin/AbstractFurnaceBlockEntityMixin	Lnet/minecraft/screen/PropertyDelegate;	propertyDelegate	field_17374
+FIELD	chihalu/hyperfurnace/mixin/AbstractFurnaceScreenHandlerMixin	Lnet/minecraft/screen/PropertyDelegate;	propertyDelegate	field_17286
+FIELD	chihalu/hyperfurnace/mixin/AbstractFurnaceScreenHandlerMixin	Lnet/minecraft/inventory/Inventory;	inventory	field_7824

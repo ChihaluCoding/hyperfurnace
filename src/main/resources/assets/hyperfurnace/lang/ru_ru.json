@@ -1,0 +1,4 @@
+{
+  "gui.hyperfurnace.speed.button": "Скорость: %sx",
+  "gui.hyperfurnace.speed.tooltip": "Изменить скорость плавки: 1x (по умолчанию), 10x, 20x, 30x, 40x, 50x."
+}

@@ -1,0 +1,43 @@
+{
+	"schemaVersion": 1,
+	"id": "hyperfurnace",
+	"version": "1.0.1",
+	"name": "HyperFurnace",
+	"description": "Adds an in-furnace speed selector so the vanilla furnace can smelt up to six times faster.",
+	"authors": [
+		"chihalu"
+	],
+	"contact": {
+		"sources": "https://github.com/ChihaluCoding/hyperfurnace"
+	},
+	"license": "Chihalu-License",
+	"icon": "assets/hyperfurnace/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"chihalu.hyperfurnace.HyperFurnace"
+		],
+		"client": [
+			"chihalu.hyperfurnace.HyperFurnaceClient"
+		],
+		"fabric-datagen": [
+			"chihalu.hyperfurnace.HyperFurnaceDataGenerator"
+		]
+	},
+	"mixins": [
+		"hyperfurnace.mixins.json",
+		{
+			"config": "hyperfurnace.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.8",
+		"minecraft": ">=1.21 <1.22",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

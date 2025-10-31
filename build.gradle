@@ -1,0 +1,127 @@
+plugins {
+	id 'fabric-loom' version "${loom_version}"
+	id 'maven-publish'
+}
+
+def hyperfurnaceMinecraftMatrix = [
+	"1.21"   : [yarn: "1.21+build.9",  fabric: "0.102.0+1.21",     loader: "0.17.3"],
+	"1.21.1" : [yarn: "1.21.1+build.3", fabric: "0.116.7+1.21.1", loader: "0.17.3"],
+	"1.21.2" : [yarn: "1.21.2+build.1", fabric: "0.106.1+1.21.2", loader: "0.17.3"],
+	"1.21.3" : [yarn: "1.21.3+build.2", fabric: "0.114.1+1.21.3", loader: "0.17.3", excludeIndigo: true],
+	"1.21.4" : [yarn: "1.21.4+build.8", fabric: "0.119.4+1.21.4", loader: "0.17.3", excludeIndigo: true],
+	"1.21.5" : [yarn: "1.21.5+build.1", fabric: "0.128.2+1.21.5", loader: "0.17.3", excludeIndigo: true],
+	"1.21.6" : [yarn: "1.21.6+build.1", fabric: "0.128.2+1.21.6", loader: "0.17.3"],
+	"1.21.7" : [yarn: "1.21.7+build.8", fabric: "0.129.0+1.21.7", loader: "0.17.3"],
+	"1.21.8" : [yarn: "1.21.8+build.1", fabric: "0.136.0+1.21.8", loader: "0.17.3"],
+	"1.21.9" : [yarn: "1.21.9+build.1", fabric: "0.134.0+1.21.9", loader: "0.17.3"],
+	"1.21.10": [yarn: "1.21.10+build.2", fabric: "0.136.0+1.21.10", loader: "0.17.3"]
+]
+
+def requestedMinecraftVersion = (project.findProperty("minecraft_version") ?: "1.21").toString()
+def versionEntry = hyperfurnaceMinecraftMatrix[requestedMinecraftVersion]
+if (versionEntry == null) {
+	throw new GradleException("Unsupported minecraft_version '${requestedMinecraftVersion}'. Supported versions: ${hyperfurnaceMinecraftMatrix.keySet().join(', ')}")
+}
+
+def hyperfurnaceMinecraftVersion = requestedMinecraftVersion
+def hyperfurnaceYarnMappings = (project.findProperty("yarn_mappings") ?: versionEntry.yarn).toString()
+def hyperfurnaceFabricVersion = (project.findProperty("fabric_version") ?: versionEntry.fabric).toString()
+def hyperfurnaceLoaderVersion = (project.findProperty("loader_version") ?: versionEntry.loader ?: project.loader_version).toString()
+def hyperfurnaceExcludeIndigo = (versionEntry.containsKey("excludeIndigo") ? versionEntry.excludeIndigo : false)
+ext.hyperfurnaceSupportedVersions = hyperfurnaceMinecraftMatrix.keySet().toList()
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+	archivesName = project.archives_base_name
+}
+
+repositories {
+	// Add repositories to retrieve artifacts from in here.
+	// You should only use this when depending on other mods because
+	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
+	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
+	// for more information about repositories.
+}
+
+loom {
+	splitEnvironmentSourceSets()
+
+	mods {
+		"hyperfurnace" {
+			sourceSet sourceSets.main
+			sourceSet sourceSets.client
+		}
+	}
+
+}
+
+fabricApi {
+	configureDataGeneration {
+		client = true
+	}
+}
+
+dependencies {
+	// Versions are resolved from hyperfurnaceMinecraftMatrix above unless overridden with -Pyarn_mappings/-Pfabric_version
+	minecraft "com.mojang:minecraft:${hyperfurnaceMinecraftVersion}"
+	mappings "net.fabricmc:yarn:${hyperfurnaceYarnMappings}:v2"
+	modImplementation "net.fabricmc:fabric-loader:${hyperfurnaceLoaderVersion}"
+
+	// Fabric API. This is technically optional, but you probably want it anyway.
+	modImplementation("net.fabricmc.fabric-api:fabric-api:${hyperfurnaceFabricVersion}") {
+		if (hyperfurnaceExcludeIndigo) {
+			exclude group: "net.fabricmc.fabric-api", module: "fabric-renderer-indigo"
+		}
+	}
+	
+}
+
+processResources {
+	inputs.property "version", project.version
+
+	filesMatching("fabric.mod.json") {
+		expand "version": inputs.properties.version
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 21
+}
+
+java {
+	// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
+	// if it is present.
+	// If you remove this line, sources will not be generated.
+	withSourcesJar()
+
+	sourceCompatibility = JavaVersion.VERSION_21
+	targetCompatibility = JavaVersion.VERSION_21
+}
+
+jar {
+	inputs.property "archivesName", project.base.archivesName
+
+	from("LICENSE") {
+		rename { "${it}_${inputs.properties.archivesName}"}
+	}
+}
+
+// configure the maven publication
+publishing {
+	publications {
+		create("mavenJava", MavenPublication) {
+			artifactId = project.archives_base_name
+			from components.java
+		}
+	}
+
+	// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+	repositories {
+		// Add repositories to publish to here.
+		// Notice: This block does NOT have the same function as the block in the top level.
+		// The repositories here will be used for publishing your artifact, not for
+		// retrieving dependencies.
+	}
+}

@@ -1,0 +1,4 @@
+{
+  "gui.hyperfurnace.speed.button": "Hız: %sx",
+  "gui.hyperfurnace.speed.tooltip": "Eritme hızını değiştir: 1x (varsayılan), 10x, 20x, 30x, 40x, 50x."
+}
